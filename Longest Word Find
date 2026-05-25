@@ -1,1 +1,25 @@
+name_me = input("Enter the text ")
+count = len(name_me)
+count2 = len(name_me)
+words = []
 
+space_index = []
+for i in range(0,count):
+    if name_me[i] == " ":
+        space_index.append(i)
+num_index = len(space_index)
+space_index_dec = sorted(space_index, reverse=True)
+word_index_lenght = []
+for t in space_index_dec:
+    word_index_lenght.append(count-t)
+    count = t
+word_index_lenght.append(count-0)
+
+max_let_len = word_index_lenght.index(max(word_index_lenght))
+
+for x in space_index_dec:
+    words.append(name_me[x:count2 + 1])
+    count2 = x
+words.append(name_me[0:count2])
+
+print(words[max_let_len])
